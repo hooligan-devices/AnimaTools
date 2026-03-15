@@ -1,5 +1,11 @@
 # AnimaTools
 
+> ⚠️ **Warning**
+>  
+> This library is currently under active development and its API may change.
+> It is not recommended for production use yet.
+> 
+
 AnimaTools is a C++ library for controlling addressable LEDs on ESP32 using FreeRTOS within the Arduino framework.
 
 It provides a structured way to build complex LED animations using layered effects, thread-safe flows, and flexible brightness control.
