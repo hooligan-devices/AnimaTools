@@ -38,6 +38,8 @@ The library provides common animation primitives, including:
 
 These can be applied to brightness or layer opacity allowing expressive animation patterns with minimal code.
 
+![description](images/diagram.png)
+
 ## Control methods
 ```cpp
 // == MASK
