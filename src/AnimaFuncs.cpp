@@ -1,4 +1,4 @@
-#include "anima-funcs.h"
+#include "AnimaFuncs.h"
 
 namespace AnimaFuncs
 {
