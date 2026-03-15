@@ -38,6 +38,7 @@ The library provides common animation primitives, including:
 
 These can be applied to brightness or layer opacity allowing expressive animation patterns with minimal code.
 
+## Diagram
 ![Anima Architecture](images/diagram.png)
 
 ## Basic Usage
@@ -73,7 +74,7 @@ void setup()
     animaFlow.set_solid(LAYER_1, CRGB::Green);
     animaFlow.start_opacity_envelope(LAYER_1, breathing);
 
-    // Start update_and_show() for LEDs object with LEDS_UPDATE_MS interval
+    // Run update_and_show() for LEDs object with LEDS_UPDATE_MS interval
     xTaskCreatePinnedToCore(
         [](void *param)
         {
