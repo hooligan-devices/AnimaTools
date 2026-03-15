@@ -38,7 +38,66 @@ The library provides common animation primitives, including:
 
 These can be applied to brightness or layer opacity allowing expressive animation patterns with minimal code.
 
-![description](images/diagram.png)
+![Anima Architecture](images/diagram.png)
+
+## Basic Usage
+```cpp
+#define LED_PIN 2
+#define N_LED_UNITS 64
+#define N_LAYERS 2
+#define LEDS_UPDATE_MS 20
+
+// Create LEDs object
+AnimaLeds<LED_PIN, N_LED_UNITS> animaLeds;
+// Create Flow object and bind to LEDs
+AnimaFlow<N_LED_UNITS, N_LAYERS> animaFlow(animaLeds);
+// Create object for breathing pattern
+AnimaEnvelope breathing;
+
+void setup()
+{
+    // Turn LEDs on with 500ms fade in reveal
+    animaLeds.on(500);
+    // Connect animaFlow to LEDs
+    animaFlow.connect();
+
+    // Make breathing patter with 1200ms period, 0.7 brightness range and 0.25 duty factor
+    breathing.make_breathing(1200, 0.7f, 0.25f);
+
+    // Set red color for LAYER_0 and make it fully opaque
+    animaFlow.set_solid(LAYER_0, CRGB::Red);
+    animaFlow.show_layer(LAYER_0);
+
+    // Set green color for LAYER_1 and run
+    // periodic opacity change according to breathing pattern
+    animaFlow.set_solid(LAYER_1, CRGB::Green);
+    animaFlow.start_opacity_envelope(LAYER_1, breathing);
+
+    // Start update_and_show() for LEDs object with LEDS_UPDATE_MS interval
+    xTaskCreatePinnedToCore(
+        [](void *param)
+        {
+            TickType_t xLastWakeTime = xTaskGetTickCount();
+            const TickType_t xTimeout = pdMS_TO_TICKS(LEDS_UPDATE_MS);
+            while (true)
+            {
+                animaLeds.update_and_show();
+                xTaskDelayUntil(&xLastWakeTime, xTimeout);
+            }
+        },
+        "Leds Update Task",
+        8192,
+        NULL,
+        1,
+        NULL,
+        tskNO_AFFINITY);
+}
+
+void loop()
+{
+}
+
+```
 
 ## Control methods
 ```cpp
