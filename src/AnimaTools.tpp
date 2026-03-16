@@ -1338,6 +1338,7 @@ void ANIMA_FLOW_C::make_output_leds()
   }
 
   // processing resulting layer if not fully opaque
+  // overlay with black according to remaining transparency
   if (top_alpha < 1.0f)
   {
     const mask_array_t &layer_mask = mask[0].get();

@@ -38,8 +38,8 @@ class AnimaLeds;
 ANIMA_FLOW_T
 class AnimaFlow;
 
-// Interfaces for AnimaLeds and AnimaFlow, 
-// used to pass as parameters with single template argument <N_LED_UNITS>
+// Interfaces for AnimaLeds and AnimaFlow
+// Used to pass as parameters with single template argument <N_LED_UNITS>
 I_ANIMA_LEDS_T
 class IAnimaLeds;
 
