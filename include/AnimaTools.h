@@ -5,7 +5,7 @@
 #include "AnimaTypes.h"
 #include "AnimaFuncs.h"
 
-#define LAYER_0 0
+#define LAYER_0 0 
 #define BG_LAYER LAYER_0
 #define LAYER_1 1
 #define LAYER_2 2

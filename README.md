@@ -45,10 +45,18 @@ The library provides common animation primitives, including:
 These can be applied to brightness or layer opacity allowing expressive animation patterns with minimal code.
 
 ## Diagram
-![Anima Architecture](images/diagram.png)
+![](images/diagram.png)
 
 ## Basic Usage
 ```cpp
+/*
+    Example demostrates periodic smooth blending of red & green colors
+    in following steps:
+    - Fill LAYER_0 with solid red and LAYER_1 with solid green;
+    - Create envelope for periodic 'breathing' pattern;
+    - Start opacity control for LAYER_1 with applied 'breathing' pattern.
+*/
+
 #define LED_PIN 2
 #define N_LED_UNITS 64
 #define N_LAYERS 2
@@ -68,15 +76,16 @@ void setup()
     // Connect animaFlow to LEDs
     animaFlow.connect();
 
-    // Make breathing patter with 1200ms period, 0.7 brightness range and 0.25 duty factor
+    // Make breathing patter with 1200ms period, 
+    // brightness_range = 0.7 and duty_factor = 0.25 
     breathing.make_breathing(1200, 0.7f, 0.25f);
 
     // Set red color for LAYER_0 and make it fully opaque
     animaFlow.set_solid(LAYER_0, CRGB::Red);
     animaFlow.show_layer(LAYER_0);
 
-    // Set green color for LAYER_1 and run
-    // periodic opacity change according to breathing pattern
+    // Set green color for LAYER_1 and
+    // run periodic opacity change according to breathing pattern
     animaFlow.set_solid(LAYER_1, CRGB::Green);
     animaFlow.start_opacity_envelope(LAYER_1, breathing);
 
