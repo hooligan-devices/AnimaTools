@@ -222,7 +222,7 @@ void ANIMA_LEDS_C::update_and_show()
     br_transition = f.last_flow->out_buf_leds.brightness;
   }
 
-  // === blend main with transition flow
+  // blend main with transition flow
   if (f.is_transitioning)
   {
     float scale = 1.0f;
@@ -251,7 +251,7 @@ void ANIMA_LEDS_C::update_and_show()
     } });
   }
 
-  // === fill output leds: leds_FastLED
+  // fill output leds: leds_FastLED
   if (N_LEDS_IN_UNIT == 1)
     for (size_t i = 0; i < N_LED_UNITS; i++)
       leds_FastLED[i] = (*rgb_flow)[i];

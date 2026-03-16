@@ -77,6 +77,9 @@ I_ANIMA_LEDS_T_IMPL
 class IAnimaLeds
 {
 public:
+    // Brightness headroom and scaling. Hardcoded for now.
+    // TODO: make this configurable.
+
     // extra brightness kept for effects like pulsing/flickering
     const float BRIGHT_HEADROOM = 0.2f;
     const float BRIGHT_FULL_RANGE = 1.0f + BRIGHT_HEADROOM;
@@ -181,7 +184,6 @@ class AnimaFlow : public I_ANIMA_FLOW_C
 {
 private:
     using MANAGER = AnimaTypes::MANAGER;
-    // using leds_t = typename IAnimaFlow<N_LED_UNITS>::leds_t;
     using rgb_array_t = std::array<CRGB, N_LED_UNITS>;
     using mask_array_t = std::array<bool, N_LED_UNITS>;
 
