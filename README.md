@@ -56,6 +56,10 @@ These can be applied to brightness or layer opacity allowing expressive animatio
     - Start opacity control for LAYER_1 with applied 'breathing' pattern.
 */
 
+#include <Arduino.h>
+#include <FastLED.h>
+#include <AnimaTools.h>
+
 #define LED_PIN 2
 #define N_LED_UNITS 64
 #define N_LAYERS 2
