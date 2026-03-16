@@ -5,7 +5,7 @@
 #include "AnimaTypes.h"
 #include "AnimaFuncs.h"
 
-#define LAYER_0 0 
+#define LAYER_0 0
 #define BG_LAYER LAYER_0
 #define LAYER_1 1
 #define LAYER_2 2
@@ -39,7 +39,7 @@ ANIMA_FLOW_T
 class AnimaFlow;
 
 // Interfaces for AnimaLeds and AnimaFlow, 
-// used to pass as parameters with single template argument (N_LED_UNITS)
+// used to pass as parameters with single template argument <N_LED_UNITS>
 I_ANIMA_LEDS_T
 class IAnimaLeds;
 

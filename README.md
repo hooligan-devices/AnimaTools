@@ -44,14 +44,13 @@ The library provides common animation primitives, including:
 
 These can be applied to brightness or layer opacity allowing expressive animation patterns with minimal code.
 
-## Diagram
-![](images/diagram.png)
+## Animation Flow Architecture
+<img src="images/diagram.png" width="500">
 
-## Basic Usage
+## Basic Example
 ```cpp
 /*
-    Example demostrates periodic smooth blending of red & green colors
-    in following steps:
+    Example demostrates periodic smooth color blending in following steps:
     - Fill LAYER_0 with solid red and LAYER_1 with solid green;
     - Create envelope for periodic 'breathing' pattern;
     - Start opacity control for LAYER_1 with applied 'breathing' pattern.
@@ -115,6 +114,9 @@ void loop()
 
 ```
 
+### Code Result
+<img src="images/basic_usage.gif" width="400">
+
 ## Control methods
 ```cpp
 // == MASK
@@ -151,3 +153,12 @@ void start_brightness_envelope();
 void start_brightness_envelope(const AnimaEnvelope &env, bool apply_dc_offset = false);
 
 ```
+
+## Roadmap
+
+- [x] Core animation flows
+- [x] Layer system
+- [x] Thread-safe access
+- [ ] Refactor mask control
+- [ ] Move float point to fixed point
+- [ ] Documentation & examples
